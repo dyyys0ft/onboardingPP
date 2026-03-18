@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PalomaPOS Onboarding</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2 class="form-title">PalomaPOS Merchant Onboarding</h2>
+
+      <form id="onboardingForm">
+        <div class="section">
+          <span class="section-header">01. Business Profile</span>
+          <div class="grid">
+            <div class="field-group full-width">
+              <label>Business Name</label><input type="text" name="bizName" />
+            </div>
+            <div class="field-group">
+              <label>MID (Merchant ID)</label><input type="text" name="mid" />
+            </div>
+            <div class="field-group">
+              <label>Owner Name</label><input type="text" name="ownerName" />
+            </div>
+            <div class="field-group">
+              <label>Phone</label><input type="tel" name="phone" />
+            </div>
+            <div class="field-group">
+              <label>Tax Rate (%)</label><input type="text" name="taxRate" />
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Shipping Address</label><input type="text" name="shipping" />
+          </div>
+        </div>
+
+        <div class="section">
+          <span class="section-header">02. Tip Configuration</span>
+          <div class="grid">
+            <div class="field-group full-width">
+              <label>Tip Option</label>
+              <div class="binary-choice">
+                <label class="check-item"
+                  ><input type="checkbox" name="tip_no" value="no" /> NO
+                  TIPS</label
+                >
+                <label class="check-item"
+                  ><input type="checkbox" name="tip_custom" value="custom" />
+                  CUSTOM TIP</label
+                >
+              </div>
+            </div>
+          </div>
+          <div id="tip-inputs-container" class="grid" style="margin-top: 10px">
+            <div class="field-group">
+              <label>Tip Option 1</label
+              ><input type="text" name="tip_1" placeholder="e.g. 15%" />
+            </div>
+            <div class="field-group">
+              <label>Tip Option 2</label
+              ><input type="text" name="tip_2" placeholder="e.g. 18%" />
+            </div>
+            <div class="field-group">
+              <label>Tip Option 3</label
+              ><input type="text" name="tip_3" placeholder="e.g. 20%" />
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <span class="section-header">03. Device Specifications</span>
+          <div class="counter-box">
+            <p style="font-weight: 800; font-size: 11px; margin: 0">
+              TOTAL DEVICES:
+            </p>
+            <button type="button" class="counter-btn" id="minus-btn">-</button>
+            <div class="counter-value" id="deviceCountLabel">0</div>
+            <button type="button" class="counter-btn" id="plus-btn">+</button>
+          </div>
+          <div id="deviceContainer"></div>
+        </div>
+
+        <div class="section">
+          <span class="section-header">04. Menu Configuration</span>
+          <p>
+            Please send the Menu to the <b>whatsapp chat</b> or to the email
+            <b>dev@palomapos.com</b>
+          </p>
+        </div>
+
+        <div class="section">
+          <span class="section-header">05. Cash Discount Program</span>
+          <div class="grid">
+            <div class="field-group">
+              <label>Enable Program</label>
+              <div class="binary-choice">
+                <label class="check-item"
+                  ><input
+                    type="checkbox"
+                    name="cdp"
+                    value="yes"
+                    class="exclusive cdp-toggle"
+                  />
+                  YES</label
+                >
+                <label class="check-item"
+                  ><input
+                    type="checkbox"
+                    name="cdp"
+                    value="no"
+                    class="exclusive cdp-toggle"
+                  />
+                  NO</label
+                >
+              </div>
+            </div>
+            <div class="field-group" id="cdp-rate-box" style="opacity: 0.4">
+              <label>Discount Rate (%)</label>
+              <input type="text" name="cdp_rate" disabled />
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <span class="section-header">06. Funding Options</span>
+          <div class="grid">
+            <div class="field-group">
+              <label>Instant Funding</label>
+              <div class="binary-choice">
+                <label class="check-item"
+                  ><input
+                    type="checkbox"
+                    name="fund_instant"
+                    value="yes"
+                    class="exclusive"
+                  />
+                  YES</label
+                >
+                <label class="check-item"
+                  ><input
+                    type="checkbox"
+                    name="fund_instant"
+                    value="no"
+                    class="exclusive"
+                  />
+                  NO</label
+                >
+              </div>
+            </div>
+            <div class="field-group">
+              <label>Same Day Funding</label>
+              <div class="binary-choice">
+                <label class="check-item"
+                  ><input
+                    type="checkbox"
+                    name="fund_same"
+                    value="yes"
+                    class="exclusive"
+                  />
+                  YES</label
+                >
+                <label class="check-item"
+                  ><input
+                    type="checkbox"
+                    name="fund_same"
+                    value="no"
+                    class="exclusive"
+                  />
+                  NO</label
+                >
+              </div>
+            </div>
+            <div class="field-group">
+              <label>Next Day Funding</label>
+              <div class="binary-choice">
+                <label class="check-item"
+                  ><input
+                    type="checkbox"
+                    name="fund_next"
+                    value="yes"
+                    class="exclusive"
+                  />
+                  YES</label
+                >
+                <label class="check-item"
+                  ><input
+                    type="checkbox"
+                    name="fund_next"
+                    value="no"
+                    class="exclusive"
+                  />
+                  NO</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <span class="section-header">07. Delivery & Logistics</span>
+          <div id="deliveryContainer"></div>
+        </div>
+
+        <button type="button" class="submit-btn" id="print-btn">
+          PRINT / SAVE AS PDF
+        </button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
