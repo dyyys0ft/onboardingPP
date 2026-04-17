@@ -21,8 +21,9 @@ platforms.forEach((p) => {
             <label class="check-item"><input type="checkbox" name="${p.id}_active" value="no" class="exclusive platform-toggle"> NO</label>
         </div>
         <div class="field-group time-field" style="opacity: 0.4;">
-            <label>Conf. Time</label><input type="time" disabled>
+            <label>Start Time</label><input type="time" disabled>
         </div>
+        
     `;
   deliveryContainer.appendChild(div);
 });
@@ -132,6 +133,7 @@ form.addEventListener("change", (e) => {
   // Lógica para Delivery
   if (target.classList.contains("platform-toggle")) {
     const row = target.closest(".delivery-row");
+
     const timeField = row.querySelector(".time-field");
     const input = timeField.querySelector("input");
     input.disabled = !isYes;
